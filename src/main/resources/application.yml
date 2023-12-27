@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./db/bankingdb
+    driver-class-name: org.h2.Driver
+    username: banking
+    password: banking
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  redis:
+    host: localhost
+    port: 6379
+
+  cache:
+    type: redis
+    redis:
+      time-to-live: 1m
+      cache-null-values: false
+
+local:
+  settings:
+    jwt:
+      expirePeriod: 30 # in minutes
+      secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
